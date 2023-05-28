@@ -1,0 +1,16 @@
+Conversation3
+-------------
+
+- Restrictions
+  - Works mainly with row crop growers, not suitable for pastures yet
+  - Takes more time for the product to get integrated into pasture
+
+- Field detail
+  - n/a
+
+- Timeline
+  - Tilling mentioned in connection to residential waste spreading, but no specific field name given
+
+- Follow Up
+  - Farmer prefers email for more information
+  - Farmer would like the website texted to them

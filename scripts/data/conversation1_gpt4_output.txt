@@ -1,0 +1,29 @@
+Conversation1
+-------------
+
+Restrictions:
+- pH target between 6 and 6.5, not above 7
+
+Field detail:
+- Green Pond CMC
+    - Crop: Tobacco
+    - Lime: Already applied
+    - Fertilizer: n/a
+    - Tilling: n/a
+- Green Pond Loop
+    - Crop: Sweet potatoes
+    - Lime: n/a
+    - Fertilizer: n/a
+    - Tilling: Will be tilled
+- Bailey HQ
+    - Crop: Sweet potatoes
+    - Lime: n/a
+    - Fertilizer: n/a
+    - Tilling: Will be tilled
+
+Timeline:
+- Tilling in Green Pond Loop and Bailey HQ
+- Sweet potatoes planting in late April
+
+Follow Up:
+- Email communication preferred

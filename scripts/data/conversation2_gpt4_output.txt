@@ -1,0 +1,20 @@
+Conversation2
+-------------
+
+Restrictions:
+- pH target around six
+- Lime might be needed in some fields
+
+Field detail:
+- Field 1 (specific name not provided):
+  - Crops: Soybeans, corn, produce, strawberries, sweet corn, pumpkins, and tobacco
+  - Lime: Possibly needed on 50 acres, 1 ton application
+  - Fertilizer: n/a
+  - Tilling: n/a
+
+Timeline:
+- Tilling: n/a
+
+Follow Up:
+- Soil test results and field maps will be sent to Lithos via email
+- Another phone call will be conducted after the maps are received

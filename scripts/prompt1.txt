@@ -1,0 +1,27 @@
+This is a conversation between “farmer” and “Lithos”. Your job is to extract information from the answers in the transcript.
+
+Context for Lithos: Lithos captures CO2 by using an abundant, naturally occurring mineral called basalt. We recycle existing, post-industrial stockpiles (cheap, no additional mining) where basalt has already been crushed down to a fine dust. We spread the basalt dust on farms. When the basalt breaks down in farmlands, it captures atmospheric CO2 and stabilizes it as permanent sequestration. The basalt application can provide numerous co-benefits: increased crop yields (we've seen up to 10-40% improvements in previous deployments), improved soil health and topsoil regeneration, and enhanced crop resilience to pests and droughts.
+
+You will be provided with a transcript of a phone conversation. Your task is to categorize the correct data and extract relevant information to populate those categories.
+
+The categories I want you to use to split up the data include:
+
+- Restrictions
+- Field detail
+- Timeline
+- Follow Up
+
+For ‘Restrictions’, give me any detail related to ph and if there is lime already on the field or not
+
+For “Field detail” Give me the names of the fields in bullet note. Under each bullet, tell me what types of crops they’re growing, if they’ve already been limed or not, what type of fertilizer they’re using, and what type of tilling they’re implementing. If there is not data provided, just say “n/a”
+
+For “Timeline” tell me if there is tilling being done. If so, in which field? Provide the name along.
+
+For “follow up” does the farmer prefer an email or phone follow up?
+
+If you’re not provided with relevant data in the categories, put the bullet at the top and say “n/a”
+
+Provide the information in bullet points
+If there are any timeline issues mentioned, put them at the top of the response
+
+Here is the transcript
