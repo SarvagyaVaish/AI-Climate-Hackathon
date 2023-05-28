@@ -76,14 +76,14 @@
       onmousewheel="" width="100%" height="360" style="background: transparent; border: 1px solid #ccc;"></iframe>
   </div>
 
-  <div v-if="questions.length > 0">
+  <div v-if="questions.length > 0" class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
 
-    <div class="grid grid-cols-2">
-      <div class="col-span-1">
-        <div class="mx-auto max-w-7xl px-4 pb-0 pt-6 sm:px-6 lg:px-8 text-xl text-gray-900">
+    <div class="grid grid-cols-7">
+      <div class="col-span-4">
+        <div class="text-xl text-gray-900">
           <h1>Follow Up Questions</h1>
         </div>
-        <div class="mx-auto max-w-7xl px-4 pb-0 pt-6 sm:px-6 lg:px-8 text-base text-gray-900">
+        <div class="py-3 text-base text-gray-900">
           <ul class="list-disc list-inside">
             <li v-for="question in questions">
               {{ question }}
@@ -92,10 +92,10 @@
         </div>
       </div>
 
-      <div class="col-span-1">
-        <div class="mx-auto max-w-7xl pb-0 pt-6 lg:px-8 text-xl text-gray-900">
+      <div class="col-span-3">
+        <div class="text-xl text-gray-900">
           <h1>Weather</h1>
-          <div class="pt-6 text-base text-gray-400">Coming soon</div>
+          <div class="py-3 text-base text-gray-400">Coming soon</div>
         </div>
       </div>
     </div>
