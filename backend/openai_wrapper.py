@@ -1,9 +1,8 @@
-from pydantic import BaseModel
 import json
 import openai
 
 
-openai.api_key = "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"
+openai.api_key = "sk-"
 
 PROMPT_PARSE = """
 This is a conversation between “farmer” and “Lithos”. Your job is to extract information from the transcript to record pertinent information in a structured format.
@@ -31,19 +30,6 @@ Transcript:
 """
 
 
-# class FieldData(BaseModel):
-#     from typing import Optional
-
-#     name: Optional[str]
-#     ph_level: Optional[float]
-#     crop: Optional[str]
-#     limed: Optional[bool]
-#     fertilizer: Optional[str]
-#     tilling: Optional[str]
-#     spreader: Optional[bool]
-#     spreader_tons: Optional[str]
-
-
 def clean_json_str(raw_str):
     # Clean string and parse as json
     temp = raw_str.replace("\n", "")
@@ -64,6 +50,26 @@ def parse_transcript(transcript):
             {"role": "user", "content": message},
             # {"role": "assistant", "content": "The Los Angeles Dodgers won the World Series in 2020."},
             # {"role": "user", "content": "Where was it played?"},
+        ],
+    )
+
+    # Clean and convert to json
+    return clean_json_str(response["choices"][0]["message"]["content"])
+
+
+def generate_questions(transcript, parsed_json):
+    message = "Here is a conversation with a farmer: " + transcript + "\n"
+    message = "Here is information in a structured format extracted from the conversation\n"
+    message += "__A__: " + json.dumps(parsed_json, indent=2)
+    message += """
+    Generate a few follow up questions to fill up the parts in __A__ that are currently not available in the transcript, denoted by N.A
+    Use the following format: {"questions":[question1, question2]}
+    """
+
+    response = openai.ChatCompletion.create(
+        model="gpt-4",
+        messages=[
+            {"role": "user", "content": message},
         ],
     )
 
