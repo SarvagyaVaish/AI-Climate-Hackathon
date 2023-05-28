@@ -66,6 +66,11 @@
     </div>
   </header>
 
+  <!-- <div v-if="questions.length == 0"
+    class="mx-auto max-w-7xl px-4 pb-0 pt-6 sm:px-6 lg:px-8 text-xl text-gray-900 text-center mt-32">
+    <h1>Select a call to get started</h1>
+  </div> -->
+
   <div class="mx-auto max-w-7xl px-4 pb-0 pt-6 sm:px-6 lg:px-8 text-xl text-gray-900">
     <h1>{{ selectedConv.name }}</h1>
   </div>
@@ -77,7 +82,6 @@
   </div>
 
   <div v-if="questions.length > 0" class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-
     <div class="grid grid-cols-7">
       <div class="col-span-4">
         <div class="text-xl text-gray-900">
@@ -92,10 +96,11 @@
         </div>
       </div>
 
-      <div class="col-span-3">
+      <div v-if="temperature" class="col-span-3">
         <div class="text-xl text-gray-900">
           <h1>Weather</h1>
-          <div class="py-3 text-base text-gray-400">Coming soon</div>
+          <div class="pt-3 text-base ">Temperature: {{ temperature }} °C</div>
+          <div class="text-base ">Precipitation: {{ precipitation }} %</div>
         </div>
       </div>
     </div>
@@ -106,7 +111,7 @@
 
 <script>
 import { completion } from "./../api/openai";
-import { parse } from "./../api/service";
+import { parse, weather } from "./../api/service";
 import CallSelector from "./CallSelector.vue"
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
@@ -135,6 +140,8 @@ export default {
       selectedId: "conv1",
       loading: false,
       questions: [],
+      temperature: null,
+      precipitation: null,
     };
   },
 
@@ -159,6 +166,11 @@ export default {
 
         this.questions = response.questions;
         console.log(this.questions);
+
+        const weather_data = await weather(5);
+        console.log(weather_data);
+        this.temperature = weather_data.temperature
+        this.precipitation = weather_data.precipitation
       }
       fn();
     },

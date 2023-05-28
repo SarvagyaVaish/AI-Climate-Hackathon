@@ -2,7 +2,7 @@ import json
 import openai
 
 
-openai.api_key = "sk-"
+openai.api_key = ""
 
 PROMPT_PARSE = """
 This is a conversation between “farmer” and “Lithos”. Your job is to extract information from the transcript to record pertinent information in a structured format.

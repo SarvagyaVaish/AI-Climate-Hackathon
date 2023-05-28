@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+import time
 import json
 
 
@@ -44,9 +45,33 @@ class Conversation(BaseModel):
     convId: str
 
 
+class Forecast(BaseModel):
+    days: int
+
+
 @app.get("/")
 async def main():
     return {"message": "Hello World"}
+
+
+@app.post("/reset_airtable")
+async def reset_airtable():
+    from airtable import clear_table
+
+    clear_table()
+
+
+@app.post("/weather")
+async def reset_airtable(forecast: Forecast):
+    from weather import geocode_location, get_temperature_forecast
+
+    latitude, longitude = geocode_location()
+    temperature, precipitation = get_temperature_forecast(forecast.days, latitude, longitude)
+
+    return {
+        "temperature": temperature,
+        "precipitation": precipitation,
+    }
 
 
 @app.post("/parse")
@@ -59,19 +84,27 @@ async def parse(conv: Conversation):
 
     # Step 1: Transcribe
     # transcript = transcribe_audio(conv_data["audio_filename"]) # TODO: Implement whisper call
+    print("Getting transcript")
     transcript = conv_data["transcript"]
 
     # Step 2: Parse
+    print("Parsing transcript")
+    # time.sleep(3)
     # parsed_json = parse_transcript(transcript)
     parsed_json = clean_json_str(conv_data["chat_completion"])
 
     # Step 3: Send to airtable
+    print("Populating airtable")
     clear_table()
     for row in parsed_json["fields"]:
         insert_row(row)
 
     # Step 4: Generate questions
+    print("Generating questions")
+    # time.sleep(3)
     # questions = generate_questions(transcript, parsed_json)
+    # print(questions)
+    # questions = questions["questions"]
     questions = conv_data["questions"]
 
     return {
