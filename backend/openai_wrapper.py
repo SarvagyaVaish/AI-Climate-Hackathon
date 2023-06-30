@@ -1,8 +1,13 @@
 import json
 import openai
+import os
+from dotenv import load_dotenv
 
+# Load env vars
+load_dotenv()
 
-openai.api_key = ""
+# Set up OpenAI API
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 PROMPT_PARSE = """
 This is a conversation between “farmer” and “Lithos”. Your job is to extract information from the transcript to record pertinent information in a structured format.

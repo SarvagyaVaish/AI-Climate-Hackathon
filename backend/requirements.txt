@@ -1,3 +1,5 @@
-uvicorn[standard]
 fastapi
+openai
 pyairtable
+python-dotenv
+uvicorn[standard]

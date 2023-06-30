@@ -1,11 +1,15 @@
+import os
 import json
 from pyairtable import Api, Base, Table
+from dotenv import load_dotenv
 
+# Load env vars
+load_dotenv()
 
-TOKEN = "patBR14HpIcpAUg0H.75fa0ebb4bd94b95a8d687e4b1e4074c1455df5e4f5a60e6878acc0f04bba7b5"
-BASE_ID = "appZyYmLDRabwozss"
-TABLE_NAME = "tbl3LzRBmoLLZnPh3"
-
+# Set up Airtable API
+TOKEN = os.getenv("AIRTABLE_TOKEN")
+BASE_ID = os.getenv("AIRTABLE_BASE_ID")
+TABLE_NAME = os.getenv("AIRTABLE_TABLE_NAME")
 table = Table(TOKEN, BASE_ID, TABLE_NAME)
 
 
