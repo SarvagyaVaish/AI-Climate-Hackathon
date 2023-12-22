@@ -112,12 +112,11 @@
 <script>
 import { completion } from "./../api/openai";
 import { parse, weather } from "./../api/service";
-import CallSelector from "./CallSelector.vue"
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
 
 export default {
-  components: { CallSelector, Menu, MenuButton, MenuItem, MenuItems, ChevronDownIcon },
+  components: { Menu, MenuButton, MenuItem, MenuItems, ChevronDownIcon },
 
   props: {
     // text: { type: str, required: true },

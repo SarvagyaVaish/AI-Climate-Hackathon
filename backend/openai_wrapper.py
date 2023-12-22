@@ -35,6 +35,7 @@ Transcript:
 """
 
 
+# TODO: Look into the new OpenAI json output format
 def clean_json_str(raw_str):
     # Clean string and parse as json
     temp = raw_str.replace("\n", "")
@@ -64,7 +65,9 @@ def parse_transcript(transcript):
 
 def generate_questions(transcript, parsed_json):
     message = "Here is a conversation with a farmer: " + transcript + "\n"
-    message = "Here is information in a structured format extracted from the conversation\n"
+    message = (
+        "Here is information in a structured format extracted from the conversation\n"
+    )
     message += "__A__: " + json.dumps(parsed_json, indent=2)
     message += """
     Generate a few follow up questions to fill up the parts in __A__ that are currently not available in the transcript, denoted by N.A
